@@ -8,6 +8,15 @@
 <script>
 import axios from "axios";
 export default {
+  beforeCreate() {
+    let vue=this;
+    axios.get("http://localhost:5050/Home/5").
+    then(function(response){
+      vue.post=response.data
+      // console.log(vue.post)
+    } )
+
+  },
   name: "DataUsers",
   data(){
     return{
@@ -15,12 +24,7 @@ export default {
     }
   },
   mounted() {
-    let vue=this;
-    axios.get("http://localhost:5050/Home/5").
-    then(function(response){
-      vue.post=response.data
-     // console.log(vue.post)
-    } )
+
   }
 }
 </script>

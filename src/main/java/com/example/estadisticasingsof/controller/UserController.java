@@ -20,7 +20,7 @@ public class UserController {
     private UserService userService;
 
 
-
+    @GetMapping("/All")
     public ResponseEntity<List<User>> getAll(){
         List<User>list=userService.findAlls();
         return ResponseEntity.ok(list);
