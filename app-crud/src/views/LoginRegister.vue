@@ -1,6 +1,5 @@
 <template>
 
-  <v-app id="app">
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
@@ -10,8 +9,8 @@
                 <v-window-item :value="1">
                   <v-row>
                     <v-col cols="12" md="8">
-                      <v-btn class="ma-2" color="red" dark >
-                        <v-icon dark left> mdi-arrow-left</v-icon>Volver
+                      <v-btn class="ma-2" color="red" dark v-on:click="volverHome()" >
+                        <v-icon class = "material-icons arrow_back"> </v-icon>Volver
                       </v-btn>
                       <v-card-text class="mt-10">
                         <h1
@@ -115,7 +114,7 @@
         </v-row>
       </v-container>
     </v-content>
-  </v-app>
+
 
 </template>
 
@@ -127,12 +126,14 @@ export default {
   }),
   props: {
     source: String
+  },
+  methods:{
+    volverHome(){
+      this.$router.push('/');
+    }
   }
 
 
 }
 </script>
 
-<style scoped>
-
-</style>

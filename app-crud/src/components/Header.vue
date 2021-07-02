@@ -11,7 +11,7 @@
           <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro</a></li>
           <li class="nav-item"><a class="nav-link" href="#!">Notas</a></li>
           <li class="nav-item"><a class="nav-link" href="/stats">Estadísticas</a></li>
-          <li class=" nav-item "><button type="button" class="btn btn-danger" v-on:click="abrirLogin()">Ingresar</button></li>
+          <v-btn color="red" levation="13" raised rounded dark  v-on:click="abrirLogin()">Ingresar</v-btn>
           <!-- <v-btn color="red" levation="13" raised rounded v-on:click="alert('Hola')"> Ingresar</v-btn -->
         </ul>
       </div>

@@ -157,7 +157,9 @@ $(document).ready(function(){
 body {
   background: url("https://static.pexels.com/photos/6663/desk-white-black-header.jpg") no-repeat center center fixed;
   background-size: cover;
+
 }
+
 .pomodoro {
   position: absolute;
   top: 50%;
