@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import com.example.estadisticasingsof.dao.UserRepository;
 
 import java.util.*;
 
@@ -18,7 +20,7 @@ import java.util.*;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    private UserRepository repository;
 
     @GetMapping("/All")
     public ResponseEntity<List<User>> getAll(){
@@ -64,12 +66,6 @@ public class UserController {
         return "hola";
     }
 
-    @PostMapping
-    public ResponseEntity<?> crete(@RequestBody User persona){
-        User obj=userService.save(persona);
-        return  new ResponseEntity<User>(obj, HttpStatus.OK);
-
-    }
     @GetMapping("/{id}")
     public ResponseEntity<?>read(@PathVariable Long id) throws Exception {
         Optional<User> oPersona= Optional.ofNullable(userService.findById(id));
@@ -79,4 +75,12 @@ public class UserController {
         }
         return  ResponseEntity.ok(oPersona.get().getPrueba());
     }
+
+
+
+    @PostMapping("/register")
+    public User register(@Validated @RequestBody User student){
+        return  repository.insert(student);
+    }
+
 }

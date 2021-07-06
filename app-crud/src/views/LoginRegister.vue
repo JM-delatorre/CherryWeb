@@ -13,10 +13,7 @@
                         <v-icon class = "material-icons arrow_back"> </v-icon>Volver
                       </v-btn>
                       <v-card-text class="mt-10">
-                        <h1
-                            class="text-center display-2 red--text text--"
-                        >Inicia Sesion en Cherry</h1>
-
+                        <h1 class="text-center display-2 red--text text--">Inicia Sesion en Cherry</h1>
                         <h4 class="text-center mt-4">Ingresa tus datos para iniciar sesion</h4>
                         <v-form>
                           <v-text-field
@@ -36,11 +33,15 @@
                               color="red"
                           />
                         </v-form>
+                        <div class = "errorLogin">
+                          <h6 class="text-center mt-4" id = "textErrorLogin">Contraseña o usuario incorrectos</h6>
+                        </div>
+                        <div class="text-center mt-3">
+                          <v-btn rounded color="red" dark v-on:click="errorLogin()">INICIAR SESION</v-btn>
+                        </div>
 
                       </v-card-text>
-                      <div class="text-center mt-3">
-                        <v-btn rounded color="red" dark>INICIAR SESION</v-btn>
-                      </div>
+
                     </v-col>
                     <v-col cols="12" md="4" class="red">
                       <v-card-text class="white--text mt-12">
@@ -48,10 +49,12 @@
                         <h5
                             class="text-center"
                         >Ingresa tus datos para empezar una nueva travesia con nosotros</h5>
+                        <div class="text-center">
+                          <v-btn rounded outlined dark @click="step++">REGISTRATE</v-btn>
+                        </div>
+
                       </v-card-text>
-                      <div class="text-center">
-                        <v-btn rounded outlined dark @click="step++">REGISTRATE</v-btn>
-                      </div>
+
                     </v-col>
                   </v-row>
                 </v-window-item>
@@ -60,13 +63,11 @@
                     <v-col cols="12" md="4" class="red">
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1">¡Bienvenido de nuevo!</h1>
-                        <h5
-                            class="text-center"
-                        >Para mantenerte concetado con nosotros inicia sesion con tu informacion personal</h5>
+                        <h5 class="text-center">Para mantenerte concetado con nosotros inicia sesion con tu informacion personal</h5>
+                        <div class="text-center">
+                          <v-btn rounded outlined dark @click="step--">INICIA SESION</v-btn>
+                        </div>
                       </v-card-text>
-                      <div class="text-center">
-                        <v-btn rounded outlined dark @click="step--">INICIA SESION</v-btn>
-                      </div>
                     </v-col>
 
                     <v-col cols="12" md="8">
@@ -101,10 +102,17 @@
                               color="red"
                           />
                         </v-form>
+
+                        <div class = "registroExitoso">
+                          <h6 class="text-center mt-4" id = "textRegistroExitoso">Registro Exitoso</h6>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-center mt-n5">
+                          <v-btn rounded color="red" dark v-on:click="registroExitoso()">REGISTRARSE</v-btn>
+                        </div>
                       </v-card-text>
-                      <div class="text-center mt-n5">
-                        <v-btn rounded color="red" dark>REGISTRARSE</v-btn>
-                      </div>
+
                     </v-col>
                   </v-row>
                 </v-window-item>
@@ -117,7 +125,18 @@
 
 
 </template>
+<style>
+  .errorLogin h6{
+    color : #ff0000;
+    visibility: hidden;
+  }
 
+  .registroExitoso h6{
+    color : #15a200;
+    visibility: hidden;
+  }
+
+</style>
 <script>
 export default {
   name: "LoginRegister",
@@ -130,6 +149,13 @@ export default {
   methods:{
     volverHome(){
       this.$router.push('/');
+    },
+    errorLogin(){
+      document.getElementById("textErrorLogin").style.visibility="visible";
+
+    },
+    registroExitoso(){
+      document.getElementById("textRegistroExitoso").style.visibility="visible";
     }
   }
 
