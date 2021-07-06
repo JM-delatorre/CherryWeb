@@ -5,8 +5,8 @@
     <header class="masthead text-center text-white">
       <div class="masthead-content">
         <div class="container px-5">
-          <h1 class="masthead-heading mb-0">Cherry Prueba</h1>
-          <h2 class="masthead-subheading mb-0">Tu asistente virtual</h2>
+          <h1 class="masthead-heading mb-0">Bienvenido a Cherry</h1>
+          <h2 class="masthead-subheading mb-0">Tu asistente virtual que te ayudará a ser mas eficiente en la academia</h2>
           <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">¿Qué es Cherry?</a>
 
         </div>
@@ -21,11 +21,11 @@
       <div class="container px-5">
         <div class="row gx-5 align-items-center">
           <div class="col-lg-6 order-lg-2">
-            <div class="p-5"><img class="img-fluid rounded-circle" src="../assets/img/01.jpg" alt="..." /></div>
+            <div class="p-5"><img class="img-fluid rounded-circle" src="../assets/img/ManejoTiempo.jpg" alt="..." /></div>
           </div>
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
-              <h2 class="display-4">¿Tienes problemas con la organización del tiempo?</h2>
+              <h2 class="display-4"> Organización</h2>
               <p>Cherry es una aplicación que te permitirá poder manejar tu tiempo de forma adecuada para el éxito académico y el éxito profesional</p>
             </div>
           </div>
@@ -37,11 +37,11 @@
       <div class="container px-5">
         <div class="row gx-5 align-items-center">
           <div class="col-lg-6">
-            <div class="p-5"><img class="img-fluid rounded-circle" src="../assets/img/02.jpg" alt="..." /></div>
+            <div class="p-5"><img class="img-fluid rounded-circle" src="../assets/img/MetodosEstudio.jpg" alt="..." /></div>
           </div>
           <div class="col-lg-6">
             <div class="p-5">
-              <h2 class="display-4">Métodos de estudio</h2>
+              <h2 class="display-4">Métodos</h2>
               <p>Contamos con un método para que puedas estudiar las materias y aproveches al máximo la concentración de tu cerebro</p>
             </div>
           </div>
@@ -55,12 +55,12 @@
       <div class="container px-5">
         <div class="row gx-5 align-items-center">
           <div class="col-lg-6 order-lg-2">
-            <div class="p-5"><img class="img-fluid rounded-circle" src="../assets/img/03.jpg" alt="..." /></div>
+            <div class="p-5"><img class="img-fluid rounded-circle" src="../assets/img/AhorroPapel.jpg" alt="..." /></div>
           </div>
           <div class="col-lg-6 order-lg-1">
             <div class="p-5">
-              <h2 class="display-4">Reducción de fotos y papel</h2>
-              <p>Con cherry, organizar tus notas y registros del semestre académico será más fácil</p>
+              <h2 class="display-4">Eco Friendly</h2>
+              <p>Con cherry, organizar tus notas y registros del semestre académico será más fácil y podrás reducir la cantidad de fotos y papel que usas en el año</p>
             </div>
           </div>
         </div>
@@ -95,3 +95,4 @@ a {
   color: #BF0866;
 }
 </style>
+

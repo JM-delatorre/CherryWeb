@@ -1,26 +1,22 @@
 <template>
-  <div class="HomeLogged">
-    <HelloWorld msg=""/>
-    <h2>Hola tu</h2>
-    <h2>Hola tu</h2>
-    <h2>Hola tu</h2>
-    <h2>Hola tu</h2>
-    <h2>Hola tu</h2>
-    <h2>Hola tu</h2>
-
+  <div>
+    <HeaderLogged/>
+    <HomeLoggedComponent/>
   </div>
 
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import HeaderLogged from '@/components/HeaderLogged.vue'
+import HomeLoggedComponent from '@/components/HomeLoggedComponent.vue'
+
 export default {
-  name: 'HomeLoggedprueba',
+  name: 'HomeLogged',
   components: {
-
-    HelloWorld
-
+    HomeLoggedComponent,
+    HeaderLogged
   }
 }
 </script>
+

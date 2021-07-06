@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header/>
     <HelloWorld/>
   </div>
 
@@ -10,7 +10,7 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
-//import BarraNavegacionOpcion2 from '@/components/BarraNavegacionOpcion2.vue'
+
 export default {
   name: 'Home',
   components: {
