@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header />
+    <HeaderLogged />
     <crud/>
 
   </div>
@@ -10,7 +10,8 @@
 <script>
 /*import Chart from "@/components/Chart";*/
 import Crud from "@/components/crud";
-import Header from '@/components/Header.vue'
+import HeaderLogged from '@/components/HeaderLogged.vue'
+
 /*import DataUsers from "@/components/DataUsers";*/
 /*import Customer from "@/components/Customer";*/
 
@@ -19,7 +20,7 @@ export default {
   components:{
     /* Chatchange,*/
   /*  Chart,*/
-    Header,
+    HeaderLogged,
     Crud,
    /* DataUsers,*/
    /* Customer*/
