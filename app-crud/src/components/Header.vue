@@ -6,8 +6,8 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
 
-          <li class="nav-item"><a class="nav-link" href="/">Principal</a></li>
-          <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro</a></li>
+          <li class="nav-item"><a class="nav-link" href="/">Principal<v-icon class="material-icons home pb-2 " color= "grey" ></v-icon></a></li>
+          <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro<v-icon class="material-icons timer pb-2 " color= "grey" ></v-icon></a></li>
           <v-btn color="red" levation="13" raised rounded dark  v-on:click="abrirLogin()">Ingresar <v-icon class = "material-icons login pl-2"> </v-icon></v-btn>
 
         </ul>

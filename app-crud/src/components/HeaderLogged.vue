@@ -6,11 +6,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
 
-          <li class="nav-item"><a class="nav-link" href="/">Principal</a></li>
-          <li class="nav-item"><a class="nav-link" href="#!">Calendario</a></li>
-          <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro</a></li>
-          <li class="nav-item"><a class="nav-link" href="#!">Notas</a></li>
-          <li class="nav-item"><a class="nav-link" href="/stats">Estadísticas</a></li>
+          <li class="nav-item"><a class="nav-link" href="/">Principal<v-icon class="material-icons home pb-2 " color= "grey" ></v-icon></a></li>
+          <li class="nav-item"><a class="nav-link" href="#!">Calendario<v-icon class="material-icons event pb-2 " color= "grey" ></v-icon> </a></li>
+          <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro<v-icon class="material-icons timer pb-2 " color= "grey" ></v-icon></a></li>
+          <li class="nav-item"><a class="nav-link" href="#!">Notas<v-icon class="material-icons book pb-2 " color= "grey" ></v-icon></a></li>
+          <li class="nav-item"><a class="nav-link" href="/stats">Estadísticas<v-icon class="material-icons insights pb-2 " color= "grey" ></v-icon></a></li>
 
           <v-btn color="red" levation="13" raised rounded dark  v-on:click="cerrarSesion()">Cerrar Sesion  <v-icon class = "material-icons logout pl-2" ></v-icon></v-btn>
 

@@ -7,14 +7,16 @@
     <br>
 
     <!-- Header-->
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
-    <h1>Juan Manuel es un hpta</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+    <h1>Esto es una prueba</h1>
+
+
 
     <!-- Content section 1-->
 
