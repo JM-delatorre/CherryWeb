@@ -11,8 +11,9 @@
           <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro</a></li>
           <li class="nav-item"><a class="nav-link" href="#!">Notas</a></li>
           <li class="nav-item"><a class="nav-link" href="/stats">Estadísticas</a></li>
-          <!--<v-btn color="red" levation="13" raised rounded dark  v-on:click="abrirLogin()">Ingresar</v-btn>-->
-          <!-- <v-btn color="red" levation="13" raised rounded v-on:click="alert('Hola')"> Ingresar</v-btn -->
+
+          <v-btn color="red" levation="13" raised rounded dark  v-on:click="cerrarSesion()">Cerrar Sesion  <v-icon class = "material-icons logout pl-2" ></v-icon></v-btn>
+
         </ul>
       </div>
     </div>
@@ -23,8 +24,8 @@
 <script>
 export default {
   methods:{
-    abrirLogin(){
-      this.$router.push('/login');
+    cerrarSesion(){
+      this.$router.push('/');
     }
   }
 

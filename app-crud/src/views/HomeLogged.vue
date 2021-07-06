@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeaderLogged/>
+
     <HomeLoggedComponent/>
   </div>
 

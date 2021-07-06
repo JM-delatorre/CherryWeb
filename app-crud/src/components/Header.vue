@@ -8,8 +8,8 @@
 
           <li class="nav-item"><a class="nav-link" href="/">Principal</a></li>
           <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro</a></li>
-          <v-btn color="red" levation="13" raised rounded dark  v-on:click="abrirLogin()">Ingresar</v-btn>
-          <!-- <v-btn color="red" levation="13" raised rounded v-on:click="alert('Hola')"> Ingresar</v-btn -->
+          <v-btn color="red" levation="13" raised rounded dark  v-on:click="abrirLogin()">Ingresar <v-icon class = "material-icons login pl-2"> </v-icon></v-btn>
+
         </ul>
       </div>
     </div>

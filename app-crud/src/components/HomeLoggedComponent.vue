@@ -1,8 +1,13 @@
 <template>
   <div class="hello">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- Header-->
-<h1>Juan Manuel es un hpta</h1>
+    <h1>Juan Manuel es un hpta</h1>
     <h1>Juan Manuel es un hpta</h1>
     <h1>Juan Manuel es un hpta</h1>
     <h1>Juan Manuel es un hpta</h1>
