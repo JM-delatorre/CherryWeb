@@ -1,6 +1,6 @@
 <template>
 
-    <v-content>
+    <v-main>
       <v-container class="fill-height" fluid>
 
 
@@ -19,27 +19,30 @@
                         <h4 class="text-center mt-4">Ingresa tus datos para iniciar sesion</h4>
                         <v-form>
                           <v-text-field
+                              id = "mail"
                               label="Email"
                               name="Email"
                               prepend-icon="email"
                               type="text"
                               color="red"
+                              clearable
                           />
 
                           <v-text-field
-                              id="password"
+                              id="passwordLogin"
                               label="Password"
-                              name="password"
+                              name="passwordLogin"
                               prepend-icon="lock"
                               type="password"
                               color="red"
+                              clearable
                           />
                         </v-form>
                         <div class = "errorLogin">
                           <h6 class="text-center mt-4" id = "textErrorLogin">Contraseña o usuario incorrectos</h6>
                         </div>
                         <div class="text-center mt-3">
-                          <v-btn rounded color="red" dark v-on:click="entradaExitosa()">INICIAR SESION</v-btn>
+                          <v-btn rounded color="red" dark v-on:click="loginMetodo()">INICIAR SESION</v-btn>
                         </div>
 
                       </v-card-text>
@@ -80,38 +83,48 @@
                         </div>
                         <h4 class="text-center mt-4">Ingresa tus datos para registrate</h4>
                         <v-form>
+                          <!--
+
+                          -->
                           <v-text-field
+                              id = "mailR"
+                              label="Email"
+                              name="mailR"
+                              prepend-icon="email"
+                              type="text"
+                              color="red"
+                              clearable
+                          />
+
+                          <v-text-field
+                              id= "passwordRegister"
+                              label="Password"
+                              name="passwordRegister"
+                              prepend-icon="lock"
+                              type="password"
+                              color="red"
+                              clearable
+                          />
+
+                          <v-text-field
+                              id = "nombre"
                               label="Name"
                               name="Name"
                               prepend-icon="person"
                               type="text"
                               color="red"
-                          />
-                          <v-text-field
-                              label="Email"
-                              name="Email"
-                              prepend-icon="email"
-                              type="text"
-                              color="red"
+                              clearable
                           />
 
-                          <v-text-field
-                              id="password"
-                              label="Password"
-                              name="password"
-                              prepend-icon="lock"
-                              type="password"
-                              color="red"
-                          />
                         </v-form>
 
                         <div class = "registroExitoso">
-                          <h6 class="text-center mt-4" id = "textRegistroExitoso">Registro Exitoso</h6>
+                          <h6 class="text-center mt-4" id = "textRegistroExitoso">Registro exitoso</h6>
                         </div>
                         <br>
                         <br>
                         <div class="text-center mt-n5">
-                          <v-btn rounded color="red" dark v-on:click="registroExitoso()">REGISTRARSE</v-btn>
+                          <v-btn rounded color="red" dark v-on:click="registro()">REGISTRARSE</v-btn>
                         </div>
                       </v-card-text>
 
@@ -123,7 +136,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
 
 
 </template>
@@ -140,11 +153,31 @@
 
 </style>
 <script>
+
+import axios from "axios";
+
+
 export default {
   name: "LoginRegister",
-  data: () => ({
-    step: 1
-  }),
+  data(){
+    var step;
+    var todosUsuarios;
+
+    return{
+      step: 1
+    }
+
+  },
+  beforeCreate() {
+    let vue = this;
+    axios.get("http://localhost:5050/Home/All").then(function (response) {
+      vue.todosUsuarios =  response.data
+
+    });
+
+
+  }
+  ,
   props: {
     source: String
   },
@@ -152,17 +185,115 @@ export default {
     volverHome(){
       this.$router.push('/');
     },
-    errorLogin(){
-      document.getElementById("textErrorLogin").style.visibility="visible";
+
+    registroExitoso(){
+      document.getElementById("textRegistroExitoso").innerText="Registro exitoso.";
+      document.getElementById("textRegistroExitoso").style.color="#15a200";
+      document.getElementById("textRegistroExitoso").style.visibility="visible";
+
 
     },
-    registroExitoso(){
+
+    registroNoExitoso(palabra){
+      document.getElementById("textRegistroExitoso").innerText=palabra;
+      document.getElementById("textRegistroExitoso").style.color="#ff0000";
       document.getElementById("textRegistroExitoso").style.visibility="visible";
+
+
+    },
+
+    registro(){
+
+      let vue = this;
+
+
+      let mailRegister = document.getElementById("mailR").value;
+
+      console.log("Email: " + mailRegister);
+
+      let pswRegister = document.getElementById("passwordRegister").value;
+      console.log("PSW: " + pswRegister);
+
+      let nombre =  document.getElementById("nombre").value;
+      console.log("Nombre: " +nombre);
+
+      let isRegistered = false;
+
+      for (let i of  vue.todosUsuarios){
+        if(i.correo == mailRegister){
+          this.registroNoExitoso("Registro Fallido, el usuario ya existe.");
+          isRegistered = true;
+          break;
+        }else if (mailRegister == "" && nombre == "" && pswRegister == ""){
+          this.registroNoExitoso("Por Favor ingresa todos los campos.");
+          isRegistered = true;
+          break;
+        }
+      }
+
+      if(!isRegistered){
+        axios.post("http://localhost:5050/Home/register", {
+          "id": vue.todosUsuarios.length,
+          "correo": mailRegister,
+          "password": pswRegister,
+          "nombreApellido": nombre
+
+        });
+
+        this.registroExitoso();
+        this.entradaExitosa();
+      }
+
+    },
+
+    loginMetodo(){
+      let vue = this;
+      let mail =  document.getElementById("mail").value;
+
+      let psw =  document.getElementById("passwordLogin").value;
+
+
+      let loggueado = false;
+      for (let i of vue.todosUsuarios){
+        if(i.correo == mail && i.password == psw){
+          loggueado = true;
+          break;
+        }else if(i.correo == mail && i.password != psw){
+          this.loginNoExitoso("Contraseña incorrecta");
+          //break;
+        }else if(mail == "" && psw == ""){
+          this.loginNoExitoso("Por favor ingresa todos los campos");
+          //break;
+        } else{
+          this.loginNoExitoso("Correo o Contraseña incorrectos");
+          //break;
+        }
+      }
+      if(loggueado){
+        this.loginExitoso();
+        this.entradaExitosa();
+      }
+    },
+    loginExitoso(){
+      document.getElementById("textErrorLogin").innerText="Login exitoso.";
+      document.getElementById("textErrorLogin").style.color="#15a200";
+      document.getElementById("textErrorLogin").style.visibility="visible";
+
+
+    },
+
+    loginNoExitoso(palabra){
+      document.getElementById("textErrorLogin").innerText=palabra;
+      document.getElementById("textErrorLogin").style.color="#ff0000";
+      document.getElementById("textErrorLogin").style.visibility="visible";
+
+
     },
     entradaExitosa(){
       this.$router.push('PomodoroLogged');
     }
   }
+
 
 
 }
