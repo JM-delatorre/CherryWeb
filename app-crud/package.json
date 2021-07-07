@@ -13,7 +13,7 @@
     "bootstrap": "^5.0.2",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
-    "highcharts": "^9.1.0",
+    "highcharts": "^9.1.2",
     "highcharts-vue": "^1.4.0",
     "jquery": "^3.6.0",
     "material-design-icons-iconfont": "^6.1.0",
