@@ -40,10 +40,6 @@ public class UserImpl implements UserService {
     }
 
 
-    @Override
-    public void insert(User user) {
-        userRepository.insert(user);
-    }
 
     @Override
     public List<User> findAlls() {
