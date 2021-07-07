@@ -15,7 +15,7 @@
           <template v-slot:header>
             <v-toolbar
                 dark
-                color="blue darken-3"
+                color="red darken-1"
                 class="mb-1"
             >
               <v-text-field
@@ -87,7 +87,7 @@
                   <v-btn
                       large
                       depressed
-                      color="blue"
+                      color="red"
                       :value="false"
                   >
                     <v-icon>mdi-arrow-up</v-icon>
@@ -95,7 +95,7 @@
                   <v-btn
                       large
                       depressed
-                      color="blue"
+                      color="red lighten 2"
                       :value="true"
                   >
                     <v-icon>mdi-arrow-down</v-icon>
@@ -127,12 +127,12 @@
                         v-for="(key, index) in filteredKeys"
                         :key="index"
                     >
-                      <v-list-item-content :class="{ 'blue--text': sortBy === key }">
+                      <v-list-item-content :class="{ 'red--text': sortBy === key }">
                         {{ key }}:
                       </v-list-item-content>
                       <v-list-item-content
                           class="align-end"
-                          :class="{ 'blue--text': sortBy === key }"
+                          :class="{ 'red--text': sortBy === key }"
                       >
                         {{ item[key.toLowerCase()] }}
                       </v-list-item-content>
@@ -164,11 +164,12 @@
                     <v-icon>mdi-chevron-down</v-icon>
                   </v-btn>
                 </template>
-                <v-list>
+                <v-list >
                   <v-list-item
                       v-for="(number, index) in itemsPerPageArray"
                       :key="index"
                       @click="updateItemsPerPage(number)"
+
                   >
                     <v-list-item-title>{{ number }}</v-list-item-title>
                   </v-list-item>
@@ -186,16 +187,17 @@
               <v-btn
                   fab
                   dark
-                  color="blue darken-3"
+                  color="red darken-1"
                   class="mr-1"
                   @click="formerPage"
               >
+
                 <v-icon>mdi-chevron-left</v-icon>
               </v-btn>
               <v-btn
                   fab
                   dark
-                  color="blue darken-3"
+                  color="red darken-1"
                   class="ml-1"
                   @click="nextPage"
               >
@@ -210,8 +212,12 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Note",
+
+
   data () {
     return {
       itemsPerPageArray: [4, 8, 12],
@@ -224,7 +230,7 @@ export default {
       sortBy: 'name',
       keys: [
         'Name',
-        'Calories',
+        'Codigo',
         'Fat',
         'Carbs',
         'Protein',
@@ -235,7 +241,7 @@ export default {
       items: [
         {
           name: 'Frozen Yogurt',
-          calories: 159,
+          codigo: 159,
           fat: 6.0,
           carbs: 24,
           protein: 4.0,
@@ -245,7 +251,7 @@ export default {
         },
         {
           name: 'Ice cream sandwich',
-          calories: 237,
+          codigo: 237,
           fat: 9.0,
           carbs: 37,
           protein: 4.3,
@@ -255,7 +261,7 @@ export default {
         },
         {
           name: 'Eclair',
-          calories: 262,
+          codigo: 262,
           fat: 16.0,
           carbs: 23,
           protein: 6.0,
@@ -265,7 +271,7 @@ export default {
         },
         {
           name: 'Cupcake',
-          calories: 305,
+          codigo: 305,
           fat: 3.7,
           carbs: 67,
           protein: 4.3,
@@ -275,7 +281,7 @@ export default {
         },
         {
           name: 'Gingerbread',
-          calories: 356,
+          codigo: 356,
           fat: 16.0,
           carbs: 49,
           protein: 3.9,
@@ -285,7 +291,7 @@ export default {
         },
         {
           name: 'Jelly bean',
-          calories: 375,
+          codigo: 375,
           fat: 0.0,
           carbs: 94,
           protein: 0.0,
@@ -295,7 +301,7 @@ export default {
         },
         {
           name: 'Lollipop',
-          calories: 392,
+          codigo: 392,
           fat: 0.2,
           carbs: 98,
           protein: 0,
@@ -305,7 +311,7 @@ export default {
         },
         {
           name: 'Honeycomb',
-          calories: 408,
+          codigo: 408,
           fat: 3.2,
           carbs: 87,
           protein: 6.5,
@@ -315,7 +321,7 @@ export default {
         },
         {
           name: 'Donut',
-          calories: 452,
+          codigo: 452,
           fat: 25.0,
           carbs: 51,
           protein: 4.9,
@@ -325,7 +331,7 @@ export default {
         },
         {
           name: 'KitKat',
-          calories: 518,
+          codigo: 518,
           fat: 26.0,
           carbs: 65,
           protein: 7,
@@ -336,6 +342,8 @@ export default {
       ],
     }
   },
+
+
   computed: {
     numberOfPages () {
       return Math.ceil(this.items.length / this.itemsPerPage)
@@ -345,6 +353,16 @@ export default {
     },
   },
   methods: {
+
+    beforeCreate() {
+      let vue = this;
+      axios.get("http://localhost:5050/Subject/get-all").then(function (response)  {
+        console.log(response.data)
+        vue.todasMaterias =  response.data
+
+
+
+      })},
     nextPage () {
       if (this.page + 1 <= this.numberOfPages) this.page += 1
     },
