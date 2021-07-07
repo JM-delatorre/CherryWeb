@@ -168,7 +168,6 @@
 <script>
 import axios from "axios";
 import db from '../main'
-
 export default {
   data: () => ({
     today: new Date().toISOString().substr(0, 10),
@@ -176,9 +175,9 @@ export default {
     type: 'month',
     typeToLabel: {
       month: 'Mes',
-      week: 'Week',
-      day: 'Day',
-      '4day': '4 Days',
+      week: 'Semana',
+      day: 'Día',
+      '4day': '4 Días',
     },
     start: null,
     end: null,
@@ -213,6 +212,13 @@ export default {
         start: '2021-07-11',
         end: '2021-07-11',
         color:'#800080'
+      },
+      {
+        name:'EventoPrueba',
+        details: 'Detalle evento Prueba',
+        start: '2021-07-10',
+        end: '2021-07-11',
+        color:'#1976D2'
       }
     ],
     // Adicionales...
@@ -223,36 +229,27 @@ export default {
     currentlyEditing: null
   }),
 
-/*
-  beforeCreate() {
-    let vue = this;
-    axios.get("http://localhost:5050/Activity/getEvents").then(function (response) {
-      vue.events =  response.data
-    });
-
-  }
-  ,*/
-
-
-
+    /*beforeCreate() {
+      let vue = this;
+      axios.get("http://localhost:5050/Activity/getEvents").then(function (response) {
+        vue.events =  response.data
+      });
+    }
+    ,*/
   computed: {
     title () {
       const { start, end } = this
       if (!start || !end) {
         return ''
       }
-
       const startMonth = this.monthFormatter(start)
       const endMonth = this.monthFormatter(end)
       const suffixMonth = startMonth === endMonth ? '' : endMonth
-
       const startYear = start.year
       const endYear = end.year
       const suffixYear = startYear === endYear ? '' : endYear
-
       const startDay = start.day + this.nth(start.day)
       const endDay = end.day + this.nth(end.day)
-
       switch (this.type) {
         case 'month':
           return `${startMonth} ${startYear}`
@@ -273,47 +270,37 @@ export default {
   mounted () {
     this.$refs.calendar.checkChange()
   },
-  methods: {
 
+
+
+  methods: {
     async updateEvent(ev){
       try {
         await axios.collection('eventos').doc(ev.id).update({
           name: ev.name,
           details: ev.details
         })
-
         this.selectedOpen = false;
         this.currentlyEditing = null;
-
       } catch (error) {
         console.log(error);
       }
     },
-
-
     async editEvent(id){
       this.currentlyEditing = id;
     },
-
     async deleteEvent(ev) {
       try {
-
         await axios.collection('eventos').doc(ev.id).delete();
-
         this.selectedOpen = false;
         this.getEvents();
-
       } catch (error){
         console.log(error);
       }
     },
-
-
-
     async addEvent(){
       try {
         if(this.name && this.start && this.end){
-
           //meter datos en la db
           /*await axios.collection('eventos').add({
             name: this.name,
@@ -322,7 +309,6 @@ export default {
             end: this.end,
             color: this.color
           })*/
-
           axios.post("http://localhost:5050/Activity/getEvents", {
             name: this.name,
             details: this.details,
@@ -330,16 +316,12 @@ export default {
             end: this.end,
             color: this.color
           })
-
           this.getEvents();
-
           this.name= null;
           this.details= null;
           this.start= null;
           this.end= null;
           this.color= '#1976D2';
-
-
         }else{
           console.log('Campos obligatorios');
         }
@@ -347,19 +329,15 @@ export default {
         console.log(error);
       }
     },
-
     //Traer eventos de la base de datos (asincrono)
-    async getEvents(){
+  getEvents(){
       try {
 //eventos es la coleccion
-        const snapshot = await axios.collection('eventos').get();
+        const snapshot = axios.collection('eventos').get();
         const events =[];
-
         snapshot.forEach()
-
 //traer la info de la bd
         this.events = events;
-
       }catch (error){
         console.log(error);
       }
@@ -386,14 +364,12 @@ export default {
         this.selectedElement = nativeEvent.target
         setTimeout(() => this.selectedOpen = true, 10)
       }
-
       if (this.selectedOpen) {
         this.selectedOpen = false
         setTimeout(open, 10)
       } else {
         open()
       }
-
       nativeEvent.stopPropagation()
     },
     updateRange ({ start, end }) {
