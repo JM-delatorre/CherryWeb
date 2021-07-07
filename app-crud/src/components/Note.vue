@@ -59,7 +59,13 @@
                   <v-card>
                     <v-card-text>
                       <v-text-field label="Materia"></v-text-field>
-                      <v-text-field label="File name"></v-text-field>
+                      <v-text-field label="Codigo"></v-text-field>
+                      <v-text-field label="Nota1"></v-text-field>
+                      <v-text-field label="Nota2"></v-text-field>
+                      <v-text-field label="Nota3"></v-text-field>
+                      <v-text-field label="Nota4"></v-text-field>
+                      <v-text-field label="Nota5"></v-text-field>
+                      <v-text-field label="Profesor"></v-text-field>
 
                       <small class="grey--text">* This doesn't actually save.</small>
                     </v-card-text>
@@ -117,7 +123,7 @@
               >
                 <v-card>
                   <v-card-title class="subheading font-weight-bold">
-                    {{ item.name }}
+                    {{ item.name}}
                   </v-card-title>
 
                   <v-divider></v-divider>
@@ -220,6 +226,7 @@ export default {
 
   data () {
     return {
+      tablaItems: [],
       itemsPerPageArray: [4, 8, 12],
       search: '',
       dialog : false,
@@ -229,116 +236,197 @@ export default {
       itemsPerPage: 4,
       sortBy: 'name',
       keys: [
-        'Name',
         'Codigo',
-        'Fat',
-        'Carbs',
-        'Protein',
-        'Sodium',
-        'Calcium',
-        'Iron',
+        'Nota 1',
+        'Nota 2',
+        'Nota 3',
+        'Nota 4',
+        'Nota 5',
+        'Profesor',
+        'Id',
       ],
+
+
+
+
       items: [
         {
-          name: 'Frozen Yogurt',
+          name: 'Biología',
           codigo: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          sodium: 87,
-          calcium: '14%',
-          iron: '1%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Ice cream sandwich',
+          name: 'Matemáticas',
           codigo: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          sodium: 129,
-          calcium: '8%',
-          iron: '1%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Eclair',
+          name: 'Lenguaje',
           codigo: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          sodium: 337,
-          calcium: '6%',
-          iron: '7%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Cupcake',
+          name: 'Sociales',
           codigo: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          iron: '8%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Gingerbread',
+          name: 'Agricultura',
           codigo: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-          sodium: 327,
-          calcium: '7%',
-          iron: '16%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Jelly bean',
+          name: 'Medio ambiente',
           codigo: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-          sodium: 50,
-          calcium: '0%',
-          iron: '0%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Lollipop',
+          name: 'Forestal',
           codigo: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-          sodium: 38,
-          calcium: '0%',
-          iron: '2%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Honeycomb',
+          name: 'Geometria',
           codigo: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-          sodium: 562,
-          calcium: '0%',
-          iron: '45%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'Donut',
+          name: 'Artes',
           codigo: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-          sodium: 326,
-          calcium: '2%',
-          iron: '22%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
         {
-          name: 'KitKat',
+          name: 'Religión',
           codigo: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          sodium: 54,
-          calcium: '12%',
-          iron: '6%',
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
         },
+        {
+          name: 'Escenicas',
+          codigo: 518,
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
+        },
+        {
+          name: 'Pedagogía',
+          codigo: 518,
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
+        },
+        {
+          name: 'Pedagogía3',
+          codigo: 518,
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
+        },
+        {
+          name: 'KitKat4',
+          codigo: 518,
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
+        },
+        {
+          name: 'Baile',
+          codigo: 518,
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
+        },
+        {
+          name: 'Geometria',
+          codigo: 518,
+          Nota1: 6.0,
+          Nota2: 24,
+          Nota3: 4.0,
+          Nota4: 87,
+          Nota5: '14%',
+          Profesor: '1%',
+          Id: '1%',
+        },
+
       ],
     }
   },
@@ -357,12 +445,32 @@ export default {
     beforeCreate() {
       let vue = this;
       axios.get("http://localhost:5050/Subject/get-all").then(function (response)  {
-        console.log(response.data)
-        vue.todasMaterias =  response.data
+        vue.nameSubject =  response.data
 
 
+      }).catch(function (error) {
+        console.log(error);
+      })
+    },
 
-      })},
+
+    leerAPI(){
+      axios.get('"http://localhost:5050/Subject/get-all"',
+          {
+        params: {
+          'per_page': this.cantidadResultados
+        }
+
+      }).then(response => {
+        this.usuarios = response.data.data
+      }).catch(e => {
+        console.log(e)
+      })
+    },
+  created(){
+    this.leerAPI()
+  },
+
     nextPage () {
       if (this.page + 1 <= this.numberOfPages) this.page += 1
     },
