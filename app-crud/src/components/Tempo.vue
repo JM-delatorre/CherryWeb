@@ -2,9 +2,58 @@
 
   <div id="Pomodoro">
     <v-app id="inspire">
+      <v-container class="grey lighten-5">
+      <v-row >
+        <v-col align-self="center"
+               justify="center"
+               class="pt-16"
+               >
 
-      <div class="text-center">
+            <v-dialog
+                v-model="dialog"
+                width="500"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    color="red lighten-2"
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  ¿Que debo hacer?
+                </v-btn>
+              </template>
 
+              <v-card>
+                <v-card-title class="text-h5 grey lighten-2">
+                  ¿Como usar pomodoro?
+                </v-card-title>
+
+                <v-card-text>
+                  Empieza una sesion de 25 minutos, se te notificara cuando acaben y tendras que descansar 5 minutos
+                </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                      color="primary"
+                      text
+                      @click="dialog = false"
+                  >
+                    Ok
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
+        </v-col>
+
+        <v-col >
+
+
+          <div class="text-center">
 
         <v-progress-circular
             :rotate="270"
@@ -13,7 +62,7 @@
             :value="time"
             color="red"
         >
-          <v-row
+          <v-col
               align="center"
               justify="center">
 
@@ -37,51 +86,21 @@
                    src="https://i.imgur.com/0y1h6CB.gif"
             ></v-img>
 
-          </v-row>
+          </v-col>
         </v-progress-circular>
-        <v-row align="center"
-               justify="center" >
-          <v-dialog
-              v-model="dialog"
-              width="500"
-          >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                  color="red lighten-2"
-                  dark
-                  v-bind="attrs"
-                  v-on="on"
-              >
-                ¿Que debo hacer?
-              </v-btn>
-            </template>
+          </div>
+        </v-col>
 
-            <v-card>
-              <v-card-title class="text-h5 grey lighten-2">
-                ¿Como usar pomodoro?
-              </v-card-title>
 
-              <v-card-text>
-                Empieza una sesion de 25 minutos, se te notificara cuando acaben y tendras que descansar 5 minutos
-              </v-card-text>
 
-              <v-divider></v-divider>
 
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="dialog = false"
-                >
-                  Ok
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
 
-        </v-row>
-      </div>
+      <v-col align-self="center"
+             class="pt-16"
+      >
+
+
+
 
       <v-row v-if="WasRunning"
              align="center"
@@ -149,6 +168,9 @@
 
       </v-row>
 
+      </v-col>
+      </v-row>
+      </v-container>
     </v-app>
   </div>
 
@@ -226,4 +248,9 @@ export default {
 .v-progress-circular {
   margin: 10rem;
 }
+
+
+.pt-16 { padding-top: 50%; }
+
+
 </style>
