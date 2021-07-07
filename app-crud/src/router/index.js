@@ -5,7 +5,8 @@ import Home from '../views/Home.vue'
 import Pomodorojs from '../views/Pomodoro.vue'
 import LoginRegister from "@/views/LoginRegister";
 import HomeLogged from "@/views/HomeLogged.vue";
-import PomodorojsLogged from "@/views/PomodoroLogged.vue";
+import Notas from "@/views/Notas";
+import PomodorojsLogged from '../views/PomodoroLogged.vue'
 
 
 Vue.use(VueRouter)
@@ -44,9 +45,10 @@ const routes = [
     //     //component: () => import(/* webpackChunkName: "about" */ '../views/Pomodoro.vue')
     component: Pomodorojs
   },
+
   {
 
-    path: '/pomodoroLogged',
+    path: '/PomodoroLogged',
     name: 'PomodoroLogged',
     // route level code-splitting
     //     // this generates a separate chunk (about.[hash].js) for this route
@@ -54,12 +56,17 @@ const routes = [
     //     //component: () => import(/* webpackChunkName: "about" */ '../views/Pomodoro.vue')
     component: PomodorojsLogged
   }
-
   , {
 
     path: '/login',
     name: 'Login',
     component: LoginRegister
+  },
+  {
+
+    path: '/notas',
+    name: 'Notas',
+    component: Notas
   }
 
 ]

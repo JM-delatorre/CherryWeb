@@ -2,9 +2,9 @@
   <div >
 
     <HeaderLogged/>
-    <Tempo>
 
-    </Tempo>
+
+    <Tempo/>
 
 
 
@@ -16,6 +16,7 @@
 import Header from '@/components/Header.vue'
 import Tempo from '@/components/Tempo.vue'
 import HeaderLogged from "@/components/HeaderLogged.vue";
+
 //import HelloWorld from '../components/HelloWorld.vue'
 //import BarraNavegacionOpcion2 from '@/components/BarraNavegacionOpcion2.vue'
 export default {
