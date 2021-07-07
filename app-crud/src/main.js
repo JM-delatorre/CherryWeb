@@ -20,3 +20,7 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+import VueTextareaAutosize from 'vue-textarea-autosize';
+Vue.use(VueTextareaAutosize);
+
