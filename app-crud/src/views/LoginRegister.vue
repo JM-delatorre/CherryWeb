@@ -175,8 +175,6 @@ export default {
 
     });
 
-    document.getElementById("textRegistroExitoso").style.visibility="hidden";
-    document.getElementById("textErrorLogin").style.visibility="hidden";
 
   }
   ,
@@ -251,27 +249,24 @@ export default {
     loginMetodo(){
       let vue = this;
       let mail =  document.getElementById("mail").value;
-      console.log(mail);
+
       let psw =  document.getElementById("passwordLogin").value;
-      console.log(psw);
+
 
       let loggueado = false;
-      for (let i of  vue.todosUsuarios){
-        if(i.correo == mail ){
-          if(i.password == psw){
-            loggueado = true;
-            break;
-          }
-
+      for (let i of vue.todosUsuarios){
+        if(i.correo == mail && i.password == psw){
+          loggueado = true;
+          break;
         }else if(i.correo == mail && i.password != psw){
           this.loginNoExitoso("Contraseña incorrecta");
-          break;
+          //break;
         }else if(mail == "" && psw == ""){
           this.loginNoExitoso("Por favor ingresa todos los campos");
-          break;
+          //break;
         } else{
           this.loginNoExitoso("Correo o Contraseña incorrectos");
-          break;
+          //break;
         }
       }
       if(loggueado){
