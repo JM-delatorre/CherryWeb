@@ -1,6 +1,6 @@
 <template>
 
-    <v-content>
+    <v-main>
       <v-container class="fill-height" fluid>
 
 
@@ -19,6 +19,7 @@
                         <h4 class="text-center mt-4">Ingresa tus datos para iniciar sesion</h4>
                         <v-form>
                           <v-text-field
+                              id = mail
                               label="Email"
                               name="Email"
                               prepend-icon="email"
@@ -39,7 +40,7 @@
                           <h6 class="text-center mt-4" id = "textErrorLogin">Contraseña o usuario incorrectos</h6>
                         </div>
                         <div class="text-center mt-3">
-                          <v-btn rounded color="red" dark v-on:click="entradaExitosa()">INICIAR SESION</v-btn>
+                          <v-btn rounded color="red" dark v-on:click="errorLogin()">INICIAR SESION</v-btn>
                         </div>
 
                       </v-card-text>
@@ -123,7 +124,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
 
 
 </template>
@@ -154,7 +155,11 @@ export default {
     },
     errorLogin(){
       document.getElementById("textErrorLogin").style.visibility="visible";
-
+      let mail = "Email: " + document.getElementById("mail").value;
+      console.log(mail);
+      let psw = "PSW: " + document.getElementById("password").value;
+      console.log(psw);
+      //document.getElementById("password").value = "";
     },
     registroExitoso(){
       document.getElementById("textRegistroExitoso").style.visibility="visible";
