@@ -39,9 +39,10 @@ public class UserImpl implements UserService {
         userRepository.deleteById(id);
     }
 
-    @Override
-    public void insert() {
 
+    @Override
+    public void insert(User user) {
+        userRepository.insert(user);
     }
 
     @Override

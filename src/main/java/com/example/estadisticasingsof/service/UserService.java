@@ -12,9 +12,7 @@ public interface UserService {
     public User findById(Long id) throws Exception;
     public User save(User user);
     public  void deleteById(Long id);
-    public void insert();
+    public void insert(User user);
     public List<User> findAlls();
-
-
 
 }
