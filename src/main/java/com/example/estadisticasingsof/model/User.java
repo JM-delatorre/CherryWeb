@@ -9,6 +9,9 @@ public class User {
     @Id
     private long id;
     private String correo;
+
+
+
     private String password;
     private String nombreApellido;
     private Map materia;
@@ -25,7 +28,6 @@ public class User {
 
         this.prueba = prueba;
     }
-    public User(){}
 
     public List getPrueba() {
         return prueba;
@@ -75,7 +77,13 @@ public class User {
         this.correo = correo;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 
 }

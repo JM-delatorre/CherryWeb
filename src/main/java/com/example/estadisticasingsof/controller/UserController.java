@@ -20,11 +20,11 @@ import java.util.*;
 public class UserController {
     @Autowired
     private UserService userService;
-    private UserRepository repository;
 
     @GetMapping("/All")
     public ResponseEntity<List<User>> getAll(){
         List<User>list=userService.findAlls();
+
         return ResponseEntity.ok(list);
     }
 
@@ -67,8 +67,8 @@ public class UserController {
     }
 
 
-    @PostMapping
-    public ResponseEntity<?> crete(@RequestBody User persona){
+    @PostMapping("/register")
+    public ResponseEntity<?> create(@RequestBody User persona){
         User obj=userService.save(persona);
         return  new ResponseEntity<User>(obj, HttpStatus.OK);
     }
@@ -83,11 +83,12 @@ public class UserController {
         return  ResponseEntity.ok(oPersona.get().getPrueba());
     }
 
-
-
-    @PostMapping("/register")
-    public User register(@Validated @RequestBody User student){
-        return  repository.insert(student);
+    @DeleteMapping("/{id}")
+    public void borrarPorId(@PathVariable Long id){
+        userService.deleteById(id);
     }
+
+
+
 
 }
