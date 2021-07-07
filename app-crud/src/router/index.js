@@ -6,6 +6,7 @@ import Pomodorojs from '../views/Pomodoro.vue'
 import LoginRegister from "@/views/LoginRegister";
 import HomeLogged from "@/views/HomeLogged.vue";
 import Notas from "@/views/Notas";
+import PomodorojsLogged from '../views/PomodoroLogged.vue'
 
 
 Vue.use(VueRouter)
@@ -43,6 +44,17 @@ const routes = [
     //     // which is lazy-loaded when the route is visited.
     //     //component: () => import(/* webpackChunkName: "about" */ '../views/Pomodoro.vue')
     component: Pomodorojs
+  },
+
+  {
+
+    path: '/PomodoroLogged',
+    name: 'PomodoroLogged',
+    // route level code-splitting
+    //     // this generates a separate chunk (about.[hash].js) for this route
+    //     // which is lazy-loaded when the route is visited.
+    //     //component: () => import(/* webpackChunkName: "about" */ '../views/Pomodoro.vue')
+    component: PomodorojsLogged
   }
   , {
 

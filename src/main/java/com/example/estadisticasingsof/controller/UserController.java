@@ -84,10 +84,10 @@ public class UserController {
     }
 
 
-
     @PostMapping("/register")
     public User register(@Validated @RequestBody User student){
         return  repository.insert(student);
     }
+
 
 }
