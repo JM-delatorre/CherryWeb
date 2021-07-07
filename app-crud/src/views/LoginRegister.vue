@@ -37,7 +37,7 @@
                           <h6 class="text-center mt-4" id = "textErrorLogin">Contraseña o usuario incorrectos</h6>
                         </div>
                         <div class="text-center mt-3">
-                          <v-btn rounded color="red" dark v-on:click="errorLogin()">INICIAR SESION</v-btn>
+                          <v-btn rounded color="red" dark v-on:click="entradaExitosa()">INICIAR SESION</v-btn>
                         </div>
 
                       </v-card-text>
@@ -76,7 +76,7 @@
                         <div class="text-center mt-4">
 
                         </div>
-                        <h4 class="text-center mt-4">Ingresa tus datos para regisrtrate</h4>
+                        <h4 class="text-center mt-4">Ingresa tus datos para registrate</h4>
                         <v-form>
                           <v-text-field
                               label="Name"
@@ -156,6 +156,9 @@ export default {
     },
     registroExitoso(){
       document.getElementById("textRegistroExitoso").style.visibility="visible";
+    },
+    entradaExitosa(){
+      this.$router.push('PomodoroLogged');
     }
   }
 
