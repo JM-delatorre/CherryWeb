@@ -61,6 +61,7 @@ public class UserController {
 
 
     @GetMapping("/hi")
+
     public String hola(Model model){
         model.addAttribute("mensaje","probando thymeylief");
         return "hola";

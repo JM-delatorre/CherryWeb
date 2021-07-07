@@ -1,8 +1,9 @@
 <template>
   <div id="Note">
+    <br>
     <v-app id="inspire">
       <v-container fluid>
-        <v-data-iterator
+        <v-data-iterator class="pt-16"
             :items="items"
             :items-per-page.sync="itemsPerPage"
             :page.sync="page"
