@@ -1,233 +1,229 @@
 <template>
 
-  <div class="pomodoro">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="row"><p>session length</p></div>
-        <div class="row counter">
-          <div class="col-md-4">
-            <button class="btn btn-default" id="sessDec">-</button>
-          </div>
-          <div class="col-md-2">
-            <div id="session"></div>
-          </div>
-          <div class="col-md-4">
-            <button class="btn btn-default" id="sessInc">+</button>
-          </div>
-        </div>
+  <div id="Pomodoro">
+    <v-app id="inspire">
+
+      <div class="text-center">
+
+
+        <v-progress-circular
+            :rotate="270"
+            :size="350"
+            :width="15"
+            :value="time"
+            color="red"
+        >
+          <v-row
+              align="center"
+              justify="center">
+
+
+
+            <v-avatar id = " Avatar "
+                      color="warning lighten-2"
+                      size="56"
+            ></v-avatar>
+            <v-img v-if="isRunning"
+                   lazy-src="https://i.imgur.com/UOgJZnt.gif"
+                   max-height="800"
+                   max-width="400"
+                   src="https://i.imgur.com/UOgJZnt.gifnp"
+            ></v-img>
+
+            <v-img v-else
+                   lazy-src="https://i.imgur.com/0y1h6CB.gif"
+                   max-height="800"
+                   max-width="400"
+                   src="https://i.imgur.com/0y1h6CB.gif"
+            ></v-img>
+
+          </v-row>
+        </v-progress-circular>
+        <v-row align="center"
+               justify="center" >
+          <v-dialog
+              v-model="dialog"
+              width="500"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                  color="red lighten-2"
+                  dark
+                  v-bind="attrs"
+                  v-on="on"
+              >
+                ¿Que debo hacer?
+              </v-btn>
+            </template>
+
+            <v-card>
+              <v-card-title class="text-h5 grey lighten-2">
+                ¿Como usar pomodoro?
+              </v-card-title>
+
+              <v-card-text>
+                Empieza una sesion de 25 minutos, se te notificara cuando acaben y tendras que descansar 5 minutos
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                    color="primary"
+                    text
+                    @click="dialog = false"
+                >
+                  Ok
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+
+        </v-row>
       </div>
 
-      <div class="col-md-6">
-        <div class="row"><p>break length</p></div>
-        <div class="row counter">
-          <div class="col-md-4">
-            <button class="btn btn-default" id="breakDec">-</button>
-          </div>
-          <div class="col-md-2">
-            <div id="break"></div>
-          </div>
-          <div class="col-md-4">
-            <button class="btn btn-default" id="breakInc">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <v-row v-if="WasRunning"
+             align="center"
+             justify="space-between"
+      >
 
-    <div id="clock" class="row">
-      <div class="timer"><div class="middle"></div></div>
-    </div>
-    <div class="row" id="statRow">
-      <div id="stats"></div>
-    </div>
-    <div class="container">
-      <div class="row" id="btns">
-        <button class="btn btn-default btn-lg" id="start">start</button>
-        <button class="btn btn-default btn-lg" id="stop">stop</button>
-        <button class="btn btn-default btn-lg" id="clear">clear</button>
-      </div>
-    </div>
 
+
+
+        <v-btn id= "Continue" @click.native="start"
+
+               outlined
+
+               color = "green"
+        >Continuar</v-btn>
+
+
+
+        <v-btn id= "Stop" @click.native="stop"
+
+               outlined
+
+               color = "red"
+        >Parar</v-btn>
+        <v-btn id= "Clear" @click.native="reset"
+
+               outlined
+
+               color = "blue"
+
+        >Limpiar</v-btn>
+
+
+      </v-row>
+
+      <v-row v-else>
+
+
+        <v-btn id= "Start" @click.native="start"
+
+               outlined
+
+               color = "green"
+        >Empezar</v-btn>
+
+
+
+
+
+
+        <v-btn id= "Stop" @click.native="stop"
+
+               outlined
+
+               color = "red"
+        >Parar</v-btn>
+        <v-btn id= "Clear" @click.native="reset"
+
+               outlined
+
+               color = "blue"
+
+        >Limpiar</v-btn>
+
+
+      </v-row>
+
+    </v-app>
   </div>
-
-
 
 
 
 </template>
 
 <script>
-import $ from 'jquery';
+
+
 export default {
-  name:"Tempo"
+  name: "Tempo",
+  data() {
+    return {
+      interval: {},
+      time: 0,
+      valueStop: 0,
+      isRunning: false,
+      WasRunning : false,
+      dialog: false,
+
+    }
+  },
+  methods: {
+    start() {
+      alert("Has iniciado");
+      this.isRunning = true;
+      this.WasRunning = false;
+      if (!this.timer) {
+        this.timer = setInterval(() => {
+          var realtime = Math.floor(((1500-this.time)/60))
+          document.getElementById(" Avatar ").innerHTML= String(realtime)
+          if (this.time < 1500) {
+
+            this.time++
+
+          } else {
+            clearInterval(this.timer)
+            alert("Has terminado")
+            this.reset()
+          }
+        }, 5000)
+      }
+    },
+    stop() {
+      if (this.isRunning){
+        this.WasRunning = true;
+
+      }
+      this.isRunning = false
+
+      clearInterval(this.timer)
+      this.timer = null
+    },
+    reset() {
+      this.WasRunning = false;
+      this.stop()
+      this.time = 0
+      this.secondes = 0
+      this.minutes = 0
+    },
+    setTime(payload) {
+      this.time = (payload.minutes * 60 + payload.secondes)
+    }
+
+  }
+
+
 }
 
-
-$(document).ready(function(){
-  var countS = 25;
-
-  $("#Sesion").html(countS);
-  var countB = 5;
-  $("#Descanso").html(countB);
-  var pos = "pomodoro", countLama, posLama, count;
-  $("#stats").html(pos);
-  var clock = $(".timer").FlipClock(0, {
-    countdown: true,
-    clockFace: 'MinuteCounter',
-    autoStart: false,
-    callbacks: {
-      interval: function(){
-        if (clock.getTime() == 0){
-          if (pos == "Sesion"){
-            clock.setTime(countB*60);
-            clock.start();
-            pos = "Descanso";
-            $("#stats").html(pos);
-          } else if (pos == "Descanso"){
-            clock.setTime(countS*60);
-            clock.start();
-            pos = "Sesion";
-            $("#stats").html(pos);
-          }
-        }
-      }
-    }
-  })
-  //SESSION
-  $("#sessInc").on("click", function(){
-    if ($("#Sesion").html() > 0){
-      countS = parseInt($("#Sesion").html());
-      countS+=1;
-      $("#Sesion").html(countS);
-      //clock.setTime(countS*60);
-    }
-  });
-  $("#sessDec").on("click", function(){
-    if ($("#Sesion").html() > 1){
-      countS = parseInt($("#Sesion").html());
-      countS-=1;
-      $("#Sesion").html(countS);
-      //clock.setTime(countS*60);
-    }
-  });
-  //BREAK
-  $("#breakInc").on("click", function(){
-    if ($("#Descanso").html() > 0){
-      countB = parseInt($("#Descanso").html());
-      countB+=1;
-      $("#Descanso").html(countB);
-    }
-  });
-  $("#breakDec").on("click", function(){
-    if ($("#Descanso").html() > 1){
-      countB = parseInt($("#Descanso").html());
-      countB-=1;
-      $("#Descanso").html(countB);
-    }
-  });
-  $("#start").on("click", function(){
-    if (count != countS || clock.getTime()==0){
-      clock.setTime(countS*60);
-      pos="Sesion";
-      $("#stats").html(pos);
-    } else {
-      pos = posLama;
-      $("#stats").html(pos);
-    }
-    count = countS;
-    clock.start();
-  });
-
-  $("#stop").on("click", function(){
-    clock.stop();
-
-    countLama = clock.getTime();
-    posLama = $("#stats").html();
-  });
-  $("#clear").on("click", function(){
-    clock.stop();
-    pos = "pomodoro";
-    $("#stats").html(pos);
-    clock.setTime(0);
-  });
-});
 
 </script>
 
 <style>
-body {
-  background: url("https://static.pexels.com/photos/6663/desk-white-black-header.jpg") no-repeat center center fixed;
-  background-size: cover;
-
-}
-
-.pomodoro {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  padding-top: 15px;
-  padding-bottom: 25px;
-}
-p {
-  text-align: center;
-}
-.flip-clock-wrapper{
-  max-width: 460px;
-  margin: 3em auto 2em;
-  display: flex;
-  justify-content: center;
-}
-.col-md-4{
-  display: flex;
-  justify-content: center;
-}
-.col-md-2{
-  display: flex;
-  justify-content: center;
-  height: 34px;
-  align-items: center;
-}
-.counter{
-  display: flex;
-  justify-content: center;
-}
-.clock{
-  margin-top: 30px;
-}
-.container {
-  width: 500px;
-}
-.middle{
-  display:inline-block;
-}
-#btns{
-  display: flex;
-  justify-content: center;
-}
-#stop {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.btn {
-  background-color: #333333;
-  color: #CCCCCC;
-}
-#sessInc, #sessDec, #breakInc, #breakDec {
-  font-weight: bold;
-}
-#stats {
-  background-color: #333333;
-  width: 220px;
-  height: 70px;
-  border-radius: 10px;
-  color: #CCCCCC;
-  font-size: 45px;
-  text-align: center;
-}
-#statRow {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+.v-progress-circular {
+  margin: 10rem;
 }
 </style>
