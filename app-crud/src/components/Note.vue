@@ -39,6 +39,47 @@
                     label="Sort by"
                 ></v-select>
                 <v-spacer></v-spacer>
+
+
+                <v-btn
+                    fab
+                    color="Red accent-1"
+
+
+
+                    @click="dialog = !dialog"
+                >
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+
+                <v-dialog
+                    v-model="dialog"
+                    max-width="500px"
+                >
+                  <v-card>
+                    <v-card-text>
+                      <v-text-field label="Materia"></v-text-field>
+                      <v-text-field label="File name"></v-text-field>
+
+                      <small class="grey--text">* This doesn't actually save.</small>
+                    </v-card-text>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+
+                      <v-btn
+                          text
+                          color="primary"
+                          @click="dialog = false"
+                      >
+                        Submit
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+
+                <v-spacer></v-spacer>
+
                 <v-btn-toggle
                     v-model="sortDesc"
                     mandatory
@@ -175,6 +216,7 @@ export default {
     return {
       itemsPerPageArray: [4, 8, 12],
       search: '',
+      dialog : false,
       filter: {},
       sortDesc: false,
       page: 1,
