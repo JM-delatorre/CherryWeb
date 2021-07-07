@@ -18,6 +18,8 @@ public class Subject {
     private String teacher;
     private Integer idStudent;
 
+
+
     public Subject(Integer idSubject, String nameSubject, Double grade1, Double grade2, Double grade3, Double grade4, Double grade5, String teacher, Integer idStudent) {
         this.idSubject = idSubject;
         this.nameSubject = nameSubject;
