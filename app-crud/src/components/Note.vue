@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="Note">
     <v-app id="inspire">
       <v-container fluid>
         <v-data-iterator
@@ -170,7 +170,7 @@
 <script>
 export default {
   name: "Note",
-  data() {
+  data () {
     return {
       itemsPerPageArray: [4, 8, 12],
       search: '',
@@ -294,26 +294,25 @@ export default {
     }
   },
   computed: {
-    numberOfPages() {
+    numberOfPages () {
       return Math.ceil(this.items.length / this.itemsPerPage)
     },
-    filteredKeys() {
+    filteredKeys () {
       return this.keys.filter(key => key !== 'Name')
     },
   },
   methods: {
-    nextPage() {
+    nextPage () {
       if (this.page + 1 <= this.numberOfPages) this.page += 1
     },
-    formerPage() {
+    formerPage () {
       if (this.page - 1 >= 1) this.page -= 1
     },
-    updateItemsPerPage(number) {
+    updateItemsPerPage (number) {
       this.itemsPerPage = number
     },
   },
 }
-
 </script>
 
 <style scoped>

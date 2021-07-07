@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import Pomodorojs from '../views/Pomodoro.vue'
 import LoginRegister from "@/views/LoginRegister";
 import HomeLogged from "@/views/HomeLogged.vue";
+import Notas from "@/views/Notas";
 
 
 Vue.use(VueRouter)
@@ -48,6 +49,12 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: LoginRegister
+  },
+  {
+
+    path: '/notas',
+    name: 'Notas',
+    component: Notas
   }
 
 ]
