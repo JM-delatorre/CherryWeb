@@ -15,6 +15,7 @@ import HeaderLogged from '@/components/HeaderLogged.vue'
 /*import DataUsers from "@/components/DataUsers";*/
 /*import Customer from "@/components/Customer";*/
 
+
 export default {
   name: "Stats",
   components:{

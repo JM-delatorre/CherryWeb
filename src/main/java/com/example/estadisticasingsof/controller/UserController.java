@@ -66,6 +66,13 @@ public class UserController {
         return "hola";
     }
 
+
+    @PostMapping
+    public ResponseEntity<?> crete(@RequestBody User persona){
+        User obj=userService.save(persona);
+        return  new ResponseEntity<User>(obj, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?>read(@PathVariable Long id) throws Exception {
         Optional<User> oPersona= Optional.ofNullable(userService.findById(id));

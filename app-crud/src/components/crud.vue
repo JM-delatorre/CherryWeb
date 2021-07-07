@@ -1,154 +1,182 @@
 <template>
-  <div>
-    <section class="primer_gr">
+  <header class="header-content-complet">
+    <div class="header-video">
+      <video src="../assets/video/pexels-stan-kenzo-5636838.mp4" autoplay loop></video>
+    </div>
+
+    <div class="header-overlay">
+
+    </div>
+    <div class="header-content">
+      <section class="primer_gr">
+        <ul class="list-group list-group-horizontal">
+          <li class="lista1">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-if="bandera==false" v-on:click="crearTodas()" class="btn" href="#container5" >
+                <p class="margen_inferior_1em" >
+                  <img src="../assets/img/statistics-5041374_960_720.png" alt=""></p>
+                <p class="fuente_tam120"  style="font-family: 'Comic Sans MS';color: #157347">Estadisticas Diarias</p>
+              </a>
+              <a v-if="bandera==true" v-on:click="updateSemanal()" class="btn" href="#container5" >
+                <p class="margen_inferior_1em" >
+                  <img src="../assets/img/statistics-5041374_960_720.png" alt=""></p>
+                <p class="fuente_tam120"  style="font-family: 'Comic Sans MS';color: #157347">Estadisticas Diarias</p>
+              </a>
+
+            </div>
+          </li>
+          <li class="lista2">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-on:click="crearComparar" class="btn" href="#containerComparar" >
+                <p class="margen_inferior_1em">
+                  <img src="../assets/img/power.png" alt=""></p>
+                <p class="fuente_tam120" style="font-family: 'Comic Sans MS';color: #157347" >Comparativo Semanal</p>
+              </a>
+            </div>
+          </li>
+          <li class="lista3">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-on:click="crearMeta()" class="btn" href="#containerMeta">
+                <p class="margen_inferior_1em">
+                  <img src="../assets/img/ilustrator.png" alt=""></p>
+                <p class="fuente_tam120"  style="font-family: 'Comic Sans MS';color: #157347">Promedio de Notas Y Porcentaje Alcanzado</p>
+              </a>
+            </div>
+          </li>
+
+        </ul>
+
+
+      </section>
+      <!--    <div class="buttons">
+            <b-button v-on:click="crearChart() ">I am a Button</b-button>
+            <b-button v-on:click="updateChart()">I am a Link</b-button>
+            <b-button v-on:click="creartorat()">I am a Link2</b-button>
+          </div>-->
+      <section>
+        <ul class="list-group list-group-horizontal">
+          <li class="li1">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-on:click="updateMensual()" class="btn" href="#container5" >
+                <p class="margen_inferior_1em">
+                  <img src="../assets/img/rotar.png" alt=""></p>
+                <p class="fuente_tam120" style="font-family: 'Comic Sans MS';color: #157347">Estadisticas Mensuales</p>
+              </a>
+            </div>
+          </li>
+          <li class="li2">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-on:click="updateAnual()" class="btn" >
+                <p class="margen_inferior_1em">
+                  <img src="../assets/img/cal2.png" alt=""></p>
+                <p class="fuente_tam120" style="font-family: 'Comic Sans MS';color: #157347">Estadisticas Anuales</p>
+              </a>
+            </div>
+          </li>
+          <li class="li3">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-on:click="updateComparativo()" class="btn" href="#containerComparar">
+                <p class="margen_inferior_1em">
+                  <img src="../assets/img/personalization-statistics.png" alt=""></p>
+                <p class="fuente_tam120" style="font-family: 'Comic Sans MS';color: #157347">Comparativo Mensual</p>
+              </a>
+            </div>
+          </li>
+<!--          <li class="li4">
+            <div class="vAlign" @mouseover="hover=true">
+              <a v-on:click="crearChart()" class="btn" >
+                <p class="margen_inferior_1em">
+                  <img src="../assets/img/calendarioilustra.png" alt=""></p>
+                <p class="fuente_tam120" style="font-family: 'Comic Sans MS';color: #157347">Meta Anual</p>
+              </a>
+            </div>
+          </li>-->
+
+        </ul>
+      </section>
+
       <ul class="list-group list-group-horizontal">
-        <li class="lista1">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="crearTodas()" class="btn"  href="#container5">
-              <p class="margen_inferior_1em" >
-                <img src="../assets/img/statistics-5041374_960_720.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
+        <li class="lihig">
+          <figure class="highcharts-figure">
+            <div class="hig">
+              <!--            <highcharts class="hc" :options="chartOptions" ref="chart"></highcharts>-->
+            </div>
+            <div id="container">
+            </div>
+            <p class="highcharts-description">
 
-          </div>
-        </li>
-        <li class="lista2">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="crearComparar" class="btn" href="#containerComparar" >
-              <p class="margen_inferior_1em">
-                <img src="../assets/img/power.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
-          </div>
-        </li>
-        <li class="lista3">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="crearMeta()" class="btn" href="#containerMeta">
-              <p class="margen_inferior_1em">
-                <img src="../assets/img/ilustrator.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
-          </div>
+            </p>
+
+          </figure>
         </li>
 
+        <li class="liDatauser">
+          <div class="Data">
+            <b-table class="tabla" striped hover :items="post" :fields="fields"  ></b-table>
+          </div>
+        </li>
+        <li class="torta">
+          <div id="container5" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+        </li>
       </ul>
-
-
-    </section>
-<!--    <div class="buttons">
-      <b-button v-on:click="crearChart() ">I am a Button</b-button>
-      <b-button v-on:click="updateChart()">I am a Link</b-button>
-      <b-button v-on:click="creartorat()">I am a Link2</b-button>
-    </div>-->
-    <section>
-      <ul class="list-group list-group-horizontal">
-        <li class="li1">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="updateChart()" class="btn" href="#container5" >
-              <p class="margen_inferior_1em">
-                <img src="../assets/img/rotar.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
-          </div>
-        </li>
-        <li class="li2">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="creartabla()" class="btn" >
-              <p class="margen_inferior_1em">
-                <img src="../assets/img/cal2.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
-          </div>
-        </li>
-        <li class="li3">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="crearChart()" class="btn">
-              <p class="margen_inferior_1em">
-                <img src="../assets/img/personalization-statistics.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
-          </div>
-        </li>
-        <li class="li4">
-          <div class="vAlign" @mouseover="hover=true">
-            <a v-on:click="crearChart()" class="btn" >
-              <p class="margen_inferior_1em">
-                <img src="../assets/img/calendarioilustra.png" alt=""></p>
-              <p class="fuente_tam120">Agricultura y medio ambiente</p>
-            </a>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-
-    <ul class="list-group list-group-horizontal">
-      <li class="lihig">
+      <div class="centrif">
         <figure class="highcharts-figure">
-          <div class="hig">
-<!--            <highcharts class="hc" :options="chartOptions" ref="chart"></highcharts>-->
-          </div>
-          <div id="container">
-          </div>
+          <div id="container6" ></div>
           <p class="highcharts-description">
 
           </p>
-
         </figure>
-      </li>
+      </div>
+      <div class="centrif">
+        <figure class="highcharts-figure">
+          <div id="containerComparar" ></div>
+          <p class="highcharts-description">
 
-      <li class="liDatauser">
-        <div class="Data">
-          <b-table striped hover :items="post" :fields="fields" ></b-table>
-        </div>
-      </li>
-      <li class="torta">
-        <div id="container5" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-      </li>
-    </ul>
-    <div class="centrif">
-      <figure class="highcharts-figure">
-        <div id="container6" ></div>
-        <p class="highcharts-description">
+          </p>
+        </figure>
+      </div>
+      <section>
+        <ul class="list-group list-group-horizontal">
+          <li class="Meta">
+            <div class="centrifMeta">
+              <figure class="highcharts-figure">
+                <div id="containerMeta" ></div>
+                <p class="highcharts-description">
+                </p>
+              </figure>
+            </div>
+          </li>
 
-        </p>
-      </figure>
+          <li class="Alas">
+            <div class="centrifAlas">
+              <figure class="highcharts-figure">
+                <div id="containerAlas"></div>
+                <p class="highcharts-description">
+                </p>
+              </figure>
+            </div>
+          </li>
+
+          <li class="Notas">
+            <div class="centrifNotas">
+              <figure class="highcharts-figure">
+                <div id="containerNotas" ></div>
+                <p class="highcharts-description">
+                </p>
+              </figure>
+            </div>
+          </li>
+
+
+
+        </ul>
+      </section>
+
+
     </div>
-    <div class="centrif">
-      <figure class="highcharts-figure">
-        <div id="containerComparar" ></div>
-        <p class="highcharts-description">
 
-        </p>
-      </figure>
-    </div>
-    <section>
-      <ul class="list-group list-group-horizontal">
-        <li class="Meta">
-          <div class="centrif">
-            <figure class="highcharts-figure">
-              <div id="containerMeta" ></div>
-              <p class="highcharts-description">
-              </p>
-            </figure>
-          </div>
+  </header>
 
-        </li>
-        <li class="Notas">
-          <div class="centrif">
-            <figure class="highcharts-figure">
-              <div id="containerNotas" ></div>
-              <p class="highcharts-description">
-              </p>
-            </figure>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-
-
-  </div>
 
 
 
@@ -158,8 +186,7 @@
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<script
+<script src="https://code.highcharts.com/modules/accessibility.js"></script><script
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -186,6 +213,12 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 
@@ -195,8 +228,11 @@
 import axios from "axios";
 import DataUsers from "@/components/DataUsers";
 import HighchartsVue from 'highcharts-vue'
-import Highcharts from 'highcharts'
+
 import HighchartsMore from 'highcharts/highcharts-more'
+import * as Highcharts from 'highcharts';
+import more from 'highcharts/highcharts-more';
+more(Highcharts);
 HighchartsMore(Highcharts)
 export default {
   name: "Crud",
@@ -222,6 +258,14 @@ export default {
       vue.chart5 = response.data
       console.log(vue.chart5)
     });
+    axios.get("http://localhost:5050/Home/202").then(function (response) {
+      vue.chartUpdate = response.data
+
+    });
+    axios.get("http://localhost:5050/Home/200").then(function (response) {
+      vue.chartSem = response.data
+
+    });
   },
 
   data() {
@@ -233,13 +277,18 @@ export default {
     var chart;
     var meta;
     var notas;
+    var chartUpdate;
+    var chartSem;
     let vue2 = this;
+    var alas;
+    var bandera=false;
     return {
       hover: false,
      /* datos: [],*/
       post:[],
       fields:[
-      ]
+      ],
+      bandera:false,
 
 
     }
@@ -386,29 +435,92 @@ vue.charbase= Highcharts.chart('container6', {
         },
         series: [{
           name: 'Inlges',
-          data: [3, 4, 3, 5, 4, 10, 12]
+          data: [3, 4, 3, 5, 4, 2, 3]
         }, {
           name: 'Frances',
           data: [1, 3, 4, 3, 3, 5, 4]
         },
           {
             name: 'Italiano',
-            data: [2, 1, 1, 6, 9, 5, 4]
+            data: [2, 1, 1, 5, 3, 5, 4]
           },
           {
             name: 'Aleman',
-            data: [1, 1, 1, 6, 9, 6, 4]
+            data: [1, 1, 1, 4, 3, 6, 4]
           },
           {
             name: 'Ruso',
-            data: [2, 3, 3, 5, 7, 6, 4]
+            data: [2, 3, 3, 5, 5, 6, 4]
           },
           {
             name: 'Mandarin',
-            data: [10, 1, 1, 2, 3, 1, 4]
-          }
+            data: [2, 1, 1, 2, 3, 1, 4]
+          },
+          {
+            name: 'japones',
+            data: [1, 3, 5, 2, 2,3, 4]
+          },
+          {
+            name: 'Portugues',
+            data: [1, 2, 3, 2, 1, 1, 0]
+          },
         ]
       });
+
+    },
+    updateComparativo(){
+      let  vue=this;
+      vue.charComparar.update({
+        title: {
+          text: 'Comparacion Mensual'
+        },
+        xAxis: {
+          categories: [
+            'Wee1',
+            'Week2',
+            'Week3',
+            'Week4',
+          ],
+          plotBands: [{ // visualize the weekend
+            from: 4.5,
+            to: 6.5,
+            color: 'rgba(68, 170, 213, .2)'
+          }]
+        },
+        series: [{
+          name: 'Inlges',
+          data: [3, 6, 8, 6]
+        }, {
+          name: 'Frances',
+          data: [3, 4, 5, 6]
+        },
+          {
+            name: 'Italiano',
+            data: [6, 5, 3, 4]
+          },
+          {
+            name: 'Aleman',
+            data: [1, 1, 1, 6]
+          },
+          {
+            name: 'Ruso',
+            data: [2, 3, 3, 5 ]
+          },
+          {
+            name: 'Mandarin',
+            data: [6, 1, 1, 2]
+          },
+          {
+            name: 'japones',
+            data: [3, 3, 5, 8]
+          },
+          {
+            name: 'Portugues',
+            data: [5, 2, 3, 6 ]
+          },
+        ]
+
+      })
 
     },
     crearChart() {
@@ -418,7 +530,7 @@ vue.charbase= Highcharts.chart('container6', {
           type: 'column'
         },
         title: {
-          text: 'Horas por Materia. Enero, 2021'
+          text: 'Horas por Materia Semanal'
         },
         subtitle: {
           text: "Comparacion por materia" /*'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'*/
@@ -484,6 +596,80 @@ vue.charbase= Highcharts.chart('container6', {
     },
     crearMeta(){
       let vue=this;
+      vue.alas= Highcharts.chart('containerAlas', {
+
+        chart: {
+          polar: true,
+          type: 'line'
+        },
+
+        accessibility: {
+          description: 'A spiderweb chart compares the allocated budget against actual spending within an organization. The spider chart has six spokes. Each spoke represents one of the 6 departments within the organization: sales, marketing, development, customer support, information technology and administration. The chart is interactive, and each data point is displayed upon hovering. The chart clearly shows that 4 of the 6 departments have overspent their budget with Marketing responsible for the greatest overspend of $20,000. The allocated budget and actual spending data points for each department are as follows: Sales. Budget equals $43,000; spending equals $50,000. Marketing. Budget equals $19,000; spending equals $39,000. Development. Budget equals $60,000; spending equals $42,000. Customer support. Budget equals $35,000; spending equals $31,000. Information technology. Budget equals $17,000; spending equals $26,000. Administration. Budget equals $10,000; spending equals $14,000.'
+        },
+
+        title: {
+          text: 'Tiempo vs Nota',
+          x: -80
+        },
+
+        pane: {
+          size: '80%'
+        },
+
+        xAxis: {
+          categories: ['Ingles', 'Frances', 'Italiano', 'Alemman',
+            'Ruso', 'Mandarin',"Japones","Portugues"],
+          tickmarkPlacement: 'on',
+          lineWidth: 0
+        },
+
+        yAxis: {
+          gridLineInterpolation: 'polygon',
+          lineWidth: 0,
+          min: 0
+        },
+
+        tooltip: {
+          shared: true,
+          pointFormat: '<span style="color:{series.color}">{series.name}: <b>%{point.y:,.0f}</b><br/>'
+        },
+
+        legend: {
+          align: 'right',
+          verticalAlign: 'middle',
+          layout: 'vertical'
+        },
+
+        series: [{
+          name: 'Nota',
+          data: [30, 25, 65, 85, 50, 65,20,26],
+          pointPlacement: 'on'
+        }, {
+          name: 'Horas Estudiadas',
+          data: [48, 39, 42, 31, 26, 14,12,30],
+          pointPlacement: 'on'
+        }],
+
+        responsive: {
+          rules: [{
+            condition: {
+              maxWidth: 500
+            },
+            chartOptions: {
+              legend: {
+                align: 'center',
+                verticalAlign: 'bottom',
+                layout: 'horizontal'
+              },
+              pane: {
+                size: '70%'
+              }
+            }
+          }]
+        }
+
+      });
+
        vue.meta= Highcharts.chart('containerMeta', {
 
             chart: {
@@ -495,7 +681,7 @@ vue.charbase= Highcharts.chart('container6', {
             },
 
             title: {
-              text: 'Meta Meter'
+              text: '% Objetivo'
             },
 
             pane: {
@@ -578,6 +764,7 @@ vue.charbase= Highcharts.chart('container6', {
             }]
 
           },
+
 // Add some life
           /*   function (chart) {
                if (!chart.renderer.forExport) {
@@ -638,7 +825,11 @@ vue.charbase= Highcharts.chart('container6', {
             'Aleman <span class="f16"><span id="flag" class="flag ca">' +
             '</span></span>',
             'Mandarin <span class="f16"><span id="flag" class="flag at">' +
-            '</span></span>'
+            '</span></span>',
+            'Japones <span class="f16"><span id="flag" class="flag at">' +
+            '</span></span>',
+            'Portugues <span class="f16"><span id="flag" class="flag at">' +
+            '</span></span>',
           ]
         },
         yAxis: {
@@ -661,14 +852,14 @@ vue.charbase= Highcharts.chart('container6', {
           }
         },
         series: [{
-          name:" Nota Baja",
-          data: [1.8, 1, 0, 0.5, 0]
+          name:" Primera Nota",
+          data: [1.8, 1, 0.3, 1.1, 1.4,1.5,0.7]
         }, {
-          name:"Nota Media",
-          data: [0,0, 0, 0, 0]
+          name:"Segunda Nota",
+          data: [1.3,1.2, 0.8, 1, 0.6,0.3,0.2]
         }, {
-          name: " Nota Alta",
-          data: [1, 1.5, 1.2, 1.3, 1.2]
+          name: "Tercera Nota",
+          data: [1.6, 1.5, 1.2, 1.3, 1.2,1.1,1.3]
         }]
       });
 
@@ -676,11 +867,10 @@ vue.charbase= Highcharts.chart('container6', {
     },
     crearTodas(){
       let vue=this;
-      axios.get("http://localhost:5050/Home/200").
-      then(function(response){
-        vue.post=response.data
+        vue.post=vue.chart2
+      vue.bandera=true;
         // console.log(vue.post)
-      } )
+
       vue.fields=[{
         key:"name",
         label:"Materia"
@@ -695,6 +885,9 @@ vue.charbase= Highcharts.chart('container6', {
         chart: {
           type: 'pie'
         },
+        title: {
+          text: 'Horas por Materia. Semanal'
+        },
         series: [{
           name: 'Materias',
           colorByPoint: true,
@@ -707,7 +900,7 @@ vue.charbase= Highcharts.chart('container6', {
           type: 'column'
         },
         title: {
-          text: 'Horas por Materia. Enero, 2021'
+          text: 'Horas por Materia. Semanal'
         },
         subtitle: {
           text: "Comparacion por materia" /*'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'*/
@@ -756,6 +949,18 @@ vue.charbase= Highcharts.chart('container6', {
 
 
     },
+    updateTorta(){
+      let vue=this;
+      vue.chartorta.update({
+        series: [{
+          name: 'Materias',
+          colorByPoint: true,
+          data: vue.chart5
+        }]
+
+      })
+    },
+
     updateChart() {
       let vue4 = this;
       var newChartSeries = [
@@ -779,6 +984,96 @@ vue.charbase= Highcharts.chart('container6', {
 
       })
       console.log(vue4.chart5)
+    },
+    updateMensual(){
+      let vue=this;
+      vue.chart.update({
+        title: {
+          text: 'Horas por Materia. Mensual'
+        },
+        //series:newChartSeries
+        series: [
+          {
+            name: "Materia",
+            colorByPoint: true,
+            data: vue.chart5
+          }
+        ],
+      })
+      vue.chartorta.update({
+        title: {
+          text: 'Horas por Materia. Mensual'
+        },
+        series: [{
+          name: 'Materias',
+          colorByPoint: true,
+          data: vue.chart5
+        }]
+
+      })
+      vue.post=vue.chart5
+
+
+    },
+    updateAnual(){
+      let vue=this;
+      vue.chart.update({
+        title: {
+          text: 'Horas por Materia. Anual'
+        },
+        //series:newChartSeries
+        series: [
+          {
+            name: "Materia",
+            colorByPoint: true,
+            data: vue.chartUpdate
+          }
+        ],
+      })
+      vue.chartorta.update({
+        title: {
+          text: 'Horas por Materia. Anual'
+        },
+        series: [{
+          name: 'Materias',
+          colorByPoint: true,
+          data: vue.chartUpdate
+        }]
+
+      })
+      vue.post=vue.chartUpdate
+
+
+    },
+    updateSemanal(){
+      let vue=this;
+      vue.chart.update({
+        title: {
+          text: 'Horas por Materia. Semanal'
+        },
+        //series:newChartSeries
+        series: [
+          {
+            name: "Materia",
+            colorByPoint: true,
+            data: vue.chartSem
+          }
+        ],
+      })
+      vue.chartorta.update({
+        title: {
+          text: 'Horas por Materia. Semanal'
+        },
+        series: [{
+          name: 'Materias',
+          colorByPoint: true,
+          data: vue.chartSem
+        }]
+
+      })
+      vue.post=vue.chartSem
+
+
     }
   }
 
@@ -792,28 +1087,28 @@ vue.charbase= Highcharts.chart('container6', {
 
 <style scoped>
 .btn:hover {
-  background: #BF0866;
+  background-color: #e9ecef;
 
 }
 
 .li1 {
-  width: 25%;
+  width: 33.3%;
   list-style: none;
+
 }
 
 .li2 {
-  width: 25%;
+  width: 33.3%;
   list-style: none;
+
 }
 
-.li4 {
-  width: 25%;
-  list-style: none;
-}
+
 
 .li3 {
-  width: 25%;
+  width: 33.3%;
   list-style: none;
+
 }
 
 .lihig {
@@ -832,6 +1127,7 @@ vue.charbase= Highcharts.chart('container6', {
 .list-group-horizontal{
   margin-left: 120px;
   margin-right: 120px;
+
 }
 .buttons{
   margin-top: 120px;
@@ -839,7 +1135,9 @@ vue.charbase= Highcharts.chart('container6', {
 .centrif{
   margin-left: 120px;
   margin-right: 120px;
+  list-style: none;
 }
+
 .primer_gr{
   margin-top: 150px;
 }
@@ -847,15 +1145,81 @@ vue.charbase= Highcharts.chart('container6', {
 .lista1{
   width: 33.3%;
   list-style: none;
+
 }
 .lista2{
   width: 33.3%;
   list-style: none;
+
+
 }
 .lista3{
   width: 33.3%;
   list-style: none;
+
 }
+header{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+}
+.header-video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.header-video video{
+  min-width: 100%;
+  min-height: 100%;
+}
+.header-overlay{
+  height:100vh ;
+  width: 100vw ;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: #303952;
+  z-index: 1;
+  opacity: .7;
+}
+.header-content{
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+}
+.header-content-complet{
+  width: 100vw;
+  height: 100vh;
+}
+
+.tabla{
+  background-color: #e9ecef;
+}
+.Notas{
+  width: 33%;
+  margin-left: 5px;
+  list-style: none;
+
+}
+.Meta{
+  width: 33%;
+  list-style: none;
+
+}
+.Alas{
+  margin-left: 5px;
+  width: 33%;
+  list-style: none;
+}
+
+
+
+
+
 
 
 
