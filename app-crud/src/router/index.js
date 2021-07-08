@@ -7,6 +7,7 @@ import LoginRegister from "@/views/LoginRegister";
 import HomeLogged from "@/views/HomeLogged.vue";
 import Notas from "@/views/Notas";
 import PomodorojsLogged from '../views/PomodoroLogged.vue'
+import CalendarA from "@/views/CalendarA";
 
 
 Vue.use(VueRouter)
@@ -67,6 +68,12 @@ const routes = [
     path: '/notas',
     name: 'Notas',
     component: Notas
+  }
+  , {
+
+    path: '/calendara',
+    name: 'CalendarA',
+    component: CalendarA
   }
 
 ]

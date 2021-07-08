@@ -7,7 +7,7 @@
         <ul class="navbar-nav ms-auto">
 
           <!--<li class="nav-item"><a class="nav-link" href="/">Principal<v-icon class="material-icons home pb-2 " color= "grey" ></v-icon></a></li>-->
-          <li class="nav-item"><a class="nav-link" href="#!">Calendario<v-icon class="material-icons event pb-2 " color= "grey" ></v-icon> </a></li>
+          <li class="nav-item"><a class="nav-link" href="/calendara">Calendario<v-icon class="material-icons event pb-2 " color= "grey" ></v-icon> </a></li>
           <li class="nav-item"><a class="nav-link" href="/pomodoro">Pomodoro<v-icon class="material-icons timer pb-2 " color= "grey" ></v-icon></a></li>
           <li class="nav-item"><a class="nav-link" href="/notas">Notas<v-icon class="material-icons book pb-2 " color= "grey" ></v-icon></a></li>
           <li class="nav-item"><a class="nav-link" href="/stats">Estadísticas<v-icon class="material-icons insights pb-2 " color= "grey" ></v-icon></a></li>
